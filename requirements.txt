@@ -1,3 +1,5 @@
 numpy
 pandas
 python-dotenv
+setuptools
+# -e .
