@@ -6,4 +6,6 @@ pymongo
 pymongo[srv]
 certifi
 scikit-learn
+dill
+pyaml
 # -e .
