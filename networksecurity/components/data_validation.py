@@ -27,7 +27,7 @@ class DataValidation:
 
     def validate_number_of_columns(self, dataframe):
         try:
-            number_of_columns=len(self.schema_config)
+            number_of_columns=len(self.schema_config['columns'])
             logging.info(f"Required Number of columns {number_of_columns}")
             logging.info(f"Data Frame has columns {len(dataframe.columns)}")
             if len(dataframe.columns) == number_of_columns:
@@ -122,6 +122,7 @@ class DataValidation:
                 invalid_train_file_path=None,
                 drift_report_file_path=self.data_validation_config.drift_report
             )
+            return data_validation_artifact
 
         except Exception as e:
             raise NetworkSecurityException(e, sys)
