@@ -22,6 +22,9 @@ from sklearn.ensemble import (
     GradientBoostingClassifier,
     RandomForestClassifier
 )
+import dagshub
+dagshub.init(repo_owner='mridulmahajan04', repo_name='networksecurity', mlflow=True)
+
 class ModelTrainer:
     def __init__(self, model_trainer_config:ModelTrainerConfig, data_transformation_artifact:DataTransformationArtifact):
         try:
@@ -104,7 +107,7 @@ class ModelTrainer:
 
             network_model = NetworkModel(preprocessor=preprocessor, model=best_model)
             save_object(self.model_trainer_config.trained_model_file_path, obj=network_model)
-
+            save_object("final_model/model.pkl", best_model)
             model_trainer_artifact=ModelTrainerArtifact(
                 trained_model_file_path=self.model_trainer_config.trained_model_file_path,
                 train_metric_artifact=classification_train_metric, test_metric_artifact=classification_test_metric

@@ -8,5 +8,9 @@ certifi
 scikit-learn
 dill
 pyaml
-mlflow
+# mlflow
+mlflow==2.7.1
+dagshub
+fastapi
+uvicorn
 # -e .
